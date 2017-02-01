@@ -2,4 +2,5 @@
 This repository contains the prjects using AngularJS framework.
 
 ## 1. Form Validation
-(Practice of ngMessages, $http)
+use the API https://restcountries.eu
+https://yanhuowang.github.io/AngularJS/1FormValidation/index.html
