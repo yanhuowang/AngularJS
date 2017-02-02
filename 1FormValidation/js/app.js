@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  angular.module('checkCallingCodeApp', [])
+  angular.module('checkCallingCodeApp', ['ngMessages'])
   .controller('callingCodeController', ['$scope', function($scope) {
     $scope.submitted = false;
     $scope.callingCodeInput = "";

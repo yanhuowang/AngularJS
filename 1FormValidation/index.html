@@ -3,10 +3,6 @@
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
-    <script src="js/app.js"></script>
   </head>
   <body> 
     <div class="container">  
@@ -29,7 +25,24 @@
             <button type="button submit" class="btn btn-primary" class="button">Get Country Name</button>
           </div>
 
-          <div ng-show="calling_code_form.code.$invalid && submitted">
+          <!-- use "ng-message" to show the error messages -->
+          <div ng-show="submitted" ng-messages="calling_code_form.$error" ng-messages-multiple>
+            <div ng-message="required" class="alert alert-danger"> 
+              Please input a code
+            </div>
+            <div ng-message="number" class="alert alert-danger"> 
+              The calling code can only contain numbers
+            </div>
+            <div ng-message="minlength" class="alert alert-danger">
+              The calling code is required to be at least 1 number
+            </div>
+            <div ng-message="maxlength" class="alert alert-danger">
+              The calling code cannot be longer than 6 numbers
+            </div>
+          </div>
+
+          <!-- use "ng-show" to show the error messages -->
+          <!-- <div ng-show="calling_code_form.code.$invalid && submitted">
             <div class="alert alert-danger" ng-show="calling_code_form.code.$error.required">
                 Please input a code
             </div>
@@ -42,10 +55,15 @@
             <div class="alert alert-danger" ng-show="calling_code_form.code.$error.maxlength">
                 The calling code cannot be longer than 6 numbers
             </div>
-          </div>
+          </div> -->
 
         </fieldset>
       </form>
     </div> <!-- end of container -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+    <script src="node_modules/angular-messages/angular-messages.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
